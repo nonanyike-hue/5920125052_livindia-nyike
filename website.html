@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistem Teknologi Informasi</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.55);
+
+            z-index: -1;
+        }
+
+        nav {
+            width: 100%;
+            padding: 15px 50px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(0, 0, 0, 0.6);
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 28px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 3px solid #00d9ff;
+            border-radius: 10px;
+
+            color: #00d9ff;
+            font-size: 20px;
+            font-weight: bold;
+
+            background: rgba(0, 217, 255, 0.1);
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo-text span {
+            color: #00d9ff;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00d9ff;
+        }
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 120px 20px 50px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #00d9ff;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+
+            margin-top: 30px;
+            padding: 14px 30px;
+
+            background: #00a8ff;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #0086cc;
+            transform: scale(1.05);
+        }
+
+        .content-section {
+            min-height: 70vh;
+
+            padding: 100px 10%;
+
+            text-align: center;
+
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .content-section h2 {
+            font-size: 38px;
+            margin-bottom: 25px;
+
+            color: #00d9ff;
+        }
+
+        .content-section p {
+            max-width: 850px;
+
+            margin: auto;
+
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Kartu */
+
+        .cards {
+            display: flex;
+
+            justify-content: center;
+            gap: 25px;
+
+            margin-top: 40px;
+
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 250px;
+
+            padding: 30px;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+
+            background: rgba(0, 217, 255, 0.15);
+        }
+
+        .card h3 {
+            color: #00d9ff;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 15px;
+        }
+
+        footer {
+            padding: 25px;
+
+            text-align: center;
+
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 12px 20px;
+
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .logo-icon {
+                width: 32px;
+                height: 28px;
+               border-radius: 50%; }
+
+            .logo-text {
+                font-size: 0.9rem;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 13px;
+            }
+
+            .hero p {
+                font-size: 1.8rem;
+            }
+
+            .content-section h2 {
+                font-size: 28px;
+            }
+
+            .content-section p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+</body>
+<body>
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="video.mp4" type="video/mp4">
+        Browser Anda tidak mendukung video.
+    </video>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+</body>
+    <video class="video-background" autoplay muted loop playsinline>
+
+        <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <nav>
+        
+          <div class="logo">
+        
+            <div class="logo-icon">
+            <img src="2.jpg" width="21" height="21" alt="">
+        </div>
+        
+            <div class="logo-text">
+                Sistem <span>Teknologi Informasi</span>
+            </div>
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#beranda">Beranda</a>
+            </li>
+
+            <li>
+                <a href="#teknologi">Teknologi</a>
+            </li>
+
+            <li>
+                <a href="#database">Database</a>
+            </li>
+
+            <li>
+                <a href="#jaringan">Jaringan</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <section class="hero" id="beranda">
+
+        <div class="hero-content">
+
+            <h1>
+                Sistem <span>Teknologi Informasi</span>
+            </h1>
+
+            <p>
+                Selamat datang di website Sistem Teknologi Informasi.
+                Pelajari komputer, jaringan, database, dan berbagai
+                perkembangan teknologi digital.
+            </p>
+
+            <a href="#teknologi" class="btn">
+                Pelajari Selengkapnya
+            </a>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p>
+            © 2026 Sistem Teknologi Informasi
+        </p>
+
+    </footer>
+
+</body>
+</html>
